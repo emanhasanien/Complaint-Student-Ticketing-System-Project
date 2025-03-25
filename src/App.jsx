@@ -1,35 +1,49 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import ComplaintList from "./pages//Student/ComplaintList";
+import FQA from "./pages//Student/FQA";
+import ContactUs from "./pages//Student/ContactUs";
+import StudentNavbar from "./UI-Components/StudentNavbar";
+import { Footer } from "./UI-Components/Footer";
+import SubmitComplaint from "./pages/Student/SubmitComplaint";
+import StudentDashboard from "./pages/Student/StudentDashboard";
+import AdminDashboard from "./pages/Admin/AdminDashboard";
+import ComplaintsManagement from "./pages/Admin/ComplaintsManagement";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <BrowserRouter>
 
-export default App
+  
+
+     <StudentNavbar />
+    
+       
+          <Routes>
+
+               {/* student routes  */}
+           
+            <Route path="/طالب/لوحة التحكم" element={<StudentDashboard/>}></Route>
+            <Route path="/طالب/تقديم شكوي" element={<SubmitComplaint />}></Route>
+            <Route path="/طالب/الشكاوي" element={<ComplaintList />}></Route>
+            <Route path= "/طالب/الاسئلة الشائعة" element={<FQA />}></Route>
+            <Route path= "/طالب/التواصل مع الدعم" element={<ContactUs />}></Route>
+
+
+               {/* admin routes  */}
+               <Route path="/ادمن/لوحة التحكم" element={<AdminDashboard/>}></Route>
+               <Route path="/ادمن/الشكاوي" element={<ComplaintsManagement/>}></Route>
+               <Route path="/ادمن/المراجعات" element={<AdminDashboard/>}></Route>
+
+               <Route path="*" element={<Navigate to={'/'}/>}></Route>
+
+          </Routes>
+      
+
+        <Footer />
+      
+    </BrowserRouter>
+  );
+};
+
+export default App;
