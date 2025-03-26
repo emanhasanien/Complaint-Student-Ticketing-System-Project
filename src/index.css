@@ -2,12 +2,15 @@
 /* ========= Global Style ======== */
 
 :root{
-    --main-color:#3181E9
+    --main-color:#3181E9;
 }
 
 html, body, #root {
-    height: 100vh;
+   height: 100%;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
   }
 
 
@@ -31,17 +34,45 @@ html, body, #root {
 }
 
 /*========= Home page style ========== */
-#Student-dashboard{
-    height: 78%;
+
+.student-home{
+    flex: 1;
+    background-image: url(./assets/images/Homebg.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, 0.5); /* لون شفاف فوق الصورة */
+    background-blend-mode: overlay;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.student-home h2{
+
+    color: white;
+}
+
+.student-home .student-main-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.student-home .submit-complaint-link{
+    font-size: 30px;
+    color: rgb(22, 3, 129);
+    font-weight: bold;
 }
 
 /*========= Footer style ========== */
 footer{
     background-color: var(--main-color);
     color: white;
-    height: 10%;
-}
-footer div{
-    margin: auto;
-  
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
 }

@@ -1,0 +1,28 @@
+
+[
+    {
+        "notificationId": 1,
+        "userId": 101,
+        "message": "تم تحديث حالة شكواك إلى: قيد المعالجة",
+        "timestamp": "2025-03-22T14:00:00"
+      },
+      {
+        "notificationId": 2,
+        "userId": 102,
+        "message": "تم حل الشكوى الخاصة بك بنجاح",
+        "timestamp": "2025-03-19T11:45:00"
+      },
+      {
+        "notificationId": 3,
+        "userId": 104,
+        "message": "تم استقبال شكواك وجاري العمل عليها",
+        "timestamp": "2025-03-20T09:30:00"
+      },
+      {
+        "notificationId": 4,
+        "userId": 105,
+        "message": "تم تسجيل شكواك بنجاح",
+        "timestamp": "2025-03-22T12:30:00"
+      }
+    
+]
