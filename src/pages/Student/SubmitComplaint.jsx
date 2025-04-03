@@ -2,7 +2,9 @@ import React from 'react'
 
 const SubmitComplaint = () => {
   return (
-    <h1>تقديم شكوي</h1>
+   <section className='submit-complaint'>
+     <h1>تقديم شكوي</h1>
+   </section>
   )
 }
 
