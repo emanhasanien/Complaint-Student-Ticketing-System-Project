@@ -67,8 +67,9 @@ html, body, #root {
 
 /*========= contact us page style ========== */
 
-.contact-us{
+.contact-us , .FQA {
     height: 100%;
+    margin-block: 60px;
 }
 
 /*========= Footer style ========== */

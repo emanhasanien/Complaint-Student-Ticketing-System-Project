@@ -7,8 +7,8 @@ const ContactUs = () => {
 
       <div>
         <ul className="mt-4">
-          <h3 className="fw-bold fs-4 mb-4"> البريد الالكتروني: </h3>
           <li className="fs-3 mb-3">
+            <h3 className="fw-bold fs-4 mb-4"> البريد الالكتروني: </h3>
             يمكنك إرسال مشكلتك عبر البريد الإلكتروني: support@digitalpioneers.eg
           </li>
 
