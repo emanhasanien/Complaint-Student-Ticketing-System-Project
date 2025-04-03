@@ -65,6 +65,12 @@ html, body, #root {
     font-weight: bold;
 }
 
+/*========= contact us page style ========== */
+
+.contact-us{
+    height: 100%;
+}
+
 /*========= Footer style ========== */
 footer{
     background-color: var(--main-color);
