@@ -2,8 +2,11 @@ import React from 'react'
 
 const ComplaintList = () => {
   return (
-    <h1> قائمة الشكاوي</h1>
-  )
+
+<section className='complaint-list'>
+<h1> قائمة الشكاوي</h1>
+
+</section>  )
 }
 
 export default ComplaintList
