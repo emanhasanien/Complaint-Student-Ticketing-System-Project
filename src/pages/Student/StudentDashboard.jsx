@@ -1,8 +1,11 @@
 import React from 'react'
 import {  NavLink } from 'react-router-dom'
+import StudentNavbar from '../../UI-Components/StudentNavbar';
 
 const StudentDashboard = () => {
   return (
+    <>
+
     <section  className='student-home'>
     
     <div className='student-main-content'>
@@ -11,6 +14,9 @@ const StudentDashboard = () => {
      
     </div>
     </section>
+    
+    
+    </>
   )
 }
 

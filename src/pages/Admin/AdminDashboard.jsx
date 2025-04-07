@@ -11,7 +11,7 @@ const AdminDashboard = () => {
   ];
 
   return (
-    <div className="container mt-4">
+    <div className="container mt-4 admin-dashboard">
       <h3>Dashboard</h3>
       
       <Row>

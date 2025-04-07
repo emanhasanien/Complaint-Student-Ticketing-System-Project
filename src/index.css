@@ -67,7 +67,7 @@ html, body, #root {
 
 /*========= contact us page style ========== */
 
-.contact-us , .FQA , .submit-complaint, .complaint-list {
+.contact-us , .FQA , .submit-complaint, .complaint-list ,.admin-dashboard , .notification-page{
     height: 100%;
     margin-block: 60px;
 }

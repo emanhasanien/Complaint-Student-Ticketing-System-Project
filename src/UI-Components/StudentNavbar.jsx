@@ -28,9 +28,6 @@ const StudentNavbar = () => {
             <NavLink className="nav-link" to={"/طالب/الشكاوي" }>الشكاوي</NavLink>
           </li>
 
-          <li className="nav-item">
-            <NavLink className="nav-link" to={'/notifications'}>الاشعارات</NavLink>
-          </li>
           
           <li className="nav-item">
             <NavLink className="nav-link" to={"/طالب/الاسئلة الشائعة"}>الاسئلة الشائعة</NavLink>

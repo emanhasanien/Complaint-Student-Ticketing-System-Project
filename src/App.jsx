@@ -12,6 +12,7 @@ import ComplaintsManagement from "./pages/Admin/ComplaintsManagement";
 import AdminLogin from "./pages/Admin/AdminLogin";
 import StudentLogin from "./pages/Student/StudentLogin";
 import NotificationCenter from "./UI-Components/NotificationCenter";
+import AdminNavbar from "./pages/Admin/AdminNavbar";
 
 const App = () => {
   const isAdminLogin = window.location.pathname === '/'; 
@@ -29,14 +30,15 @@ const App = () => {
         <Route path="/طالب/التواصل مع الدعم" element={<ContactUs />}></Route>
         <Route path="/student/login" element={<StudentLogin/>}></Route>
 
-        <Route path="/notifications" element={<NotificationCenter />} />
+        
       
-
+      
         {/* admin routes */}
         <Route path="/" element={<AdminLogin/>}></Route>
         <Route path="/ادمن/لوحة التحكم" element={<AdminDashboard/>}></Route>
         <Route path="/ادمن/الشكاوي" element={<ComplaintsManagement/>}></Route>
-        <Route path="/ادمن/المراجعات" element={<AdminDashboard/>}></Route>
+        <Route path="/ادمن/التحليلات" element={<AdminDashboard/>}></Route>
+        <Route path="/notifications" element={<NotificationCenter />} />
 
         <Route path="*" element={<Navigate to={'/'} />}></Route>
       </Routes>

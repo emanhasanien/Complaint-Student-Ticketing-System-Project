@@ -16,7 +16,7 @@ const NotificationCenter = () => {
   };
 
   return (
-    <div className="container mt-4">
+    <div className="container mt-4 notification-page">
       <h3 className="mb-3">الإشعارات</h3>
 
       {/* Render alerts for each notification */}
