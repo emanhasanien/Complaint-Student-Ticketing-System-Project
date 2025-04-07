@@ -11,6 +11,7 @@ import AdminDashboard from "./pages/Admin/AdminDashboard";
 import ComplaintsManagement from "./pages/Admin/ComplaintsManagement";
 import AdminLogin from "./pages/Admin/AdminLogin";
 import StudentLogin from "./pages/Student/StudentLogin";
+import NotificationCenter from "./UI-Components/NotificationCenter";
 
 const App = () => {
   const isAdminLogin = window.location.pathname === '/'; 
@@ -28,6 +29,7 @@ const App = () => {
         <Route path="/طالب/التواصل مع الدعم" element={<ContactUs />}></Route>
         <Route path="/student/login" element={<StudentLogin/>}></Route>
 
+        <Route path="/notifications" element={<NotificationCenter />} />
       
 
         {/* admin routes */}
