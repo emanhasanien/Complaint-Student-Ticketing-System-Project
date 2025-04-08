@@ -12,7 +12,7 @@ const Login = ()=> {
     try {
       const user = await AuthService.login(email);
       if (user.role === "admin") {
-        navigate("/ادمن/لوحة التحكم");
+        navigate("/admin/dashboard");
       } else{
         navigate("/طالب/لوحة التحكم");
       }

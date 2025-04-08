@@ -1,6 +1,15 @@
 import React from 'react'
-
+import { Link, NavLink, useNavigate } from 'react-router-dom'
+import logo from '../../assets/images/logo.png'
+import AuthService from '../../AuthService'
 const AdminNavbar = () => {
+
+  const navigate = useNavigate()
+  const handleLogout = ()=>{
+    AuthService.logout();
+   navigate('/login')
+  }
+
   return (
     <>
 
@@ -17,7 +26,7 @@ const AdminNavbar = () => {
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
           <li className="nav-item">
-            <NavLink className="nav-link" aria-current="page" to={"/ادمن/لوحة التحكم"}>الرئيسية</NavLink>
+            <NavLink className="nav-link" aria-current="page" to={"/admin/dashboard"}>الرئيسية</NavLink>
           </li>
           <li className="nav-item">
             <NavLink className="nav-link" to={"/ادمن/الشكاوي"}>الشكاوي</NavLink>
@@ -27,8 +36,14 @@ const AdminNavbar = () => {
             <NavLink className="nav-link" to={"/ادمن/التحليلات" }>التحليلات</NavLink>
           </li>
 
+          <li className="nav-item">
+            <NavLink className="nav-link" to={'/notifications'}>الاشعارات</NavLink>
+          </li>
+
         
         </ul>
+
+        <button className='btn btn-primary' onClick={handleLogout}>تسجيل الخروج </button>
         
       </div>
     </div>

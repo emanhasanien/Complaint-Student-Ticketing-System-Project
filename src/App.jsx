@@ -23,6 +23,7 @@ import AdminNavbar from "./pages/Admin/AdminNavbar";
 import AdminDashboard from "./pages/Admin/AdminDashboard";
 
 
+
 const App = () => {
   const user = AuthService.getUser();
   const location = useLocation();
@@ -81,10 +82,10 @@ const App = () => {
         {/* admin routes */}
 
         <Route
-          path="/ادمن/لوحة التحكم"
+          path="/admin/dashboard"
           element={
             <ProtectedRoute allowedRoles={["admin"]}>
-              <AdminDashboard/>
+             { user?.role === "admin" ? <AdminDashboard /> : <Navigate to="/login" />}
             </ProtectedRoute>
           }
         ></Route>
@@ -100,7 +101,7 @@ const App = () => {
           path="/ادمن/التحليلات"
           element={
             <ProtectedRoute allowedRoles={["admin"]}>
-              <AdminDashboard />
+              
             </ProtectedRoute>
           }
         ></Route>
