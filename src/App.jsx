@@ -1,50 +1,116 @@
-import React from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import React, { useEffect } from "react";
+import {
+  Routes,
+  Route,
+  Navigate,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 import ComplaintList from "./pages//Student/ComplaintList";
 import FQA from "./pages//Student/FQA";
 import ContactUs from "./pages//Student/ContactUs";
-import StudentNavbar from "./UI-Components/StudentNavbar";
 import { Footer } from "./UI-Components/Footer";
 import SubmitComplaint from "./pages/Student/SubmitComplaint";
 import StudentDashboard from "./pages/Student/StudentDashboard";
-import AdminDashboard from "./pages/Admin/AdminDashboard";
+
 import ComplaintsManagement from "./pages/Admin/ComplaintsManagement";
-import AdminLogin from "./pages/Admin/AdminLogin";
-import StudentLogin from "./pages/Student/StudentLogin";
 import NotificationCenter from "./UI-Components/NotificationCenter";
+import AuthService from "./AuthService";
+import ProtectedRoute from "./pages/ProtectedRoute";
+import Login from "./pages/Login";
+import StudentNavbar from "./UI-Components/StudentNavbar";
 import AdminNavbar from "./pages/Admin/AdminNavbar";
+import AdminDashboard from "./pages/Admin/AdminDashboard";
+
 
 const App = () => {
-  const isAdminLogin = window.location.pathname === '/'; 
+  const user = AuthService.getUser();
+  const location = useLocation();
+  const navigate = useNavigate();
+
+
+  
+
+
+  useEffect(() => {
+    if (!user) {
+      navigate("/login", { replace: true });
+    }
+  }, [user, navigate]);
+
+  const hideFooterPages = ["/login"];
 
   return (
-    <BrowserRouter>
-      {!isAdminLogin && <StudentNavbar />} 
-      
+    <>
+      {user?.role === "student" && <StudentNavbar />}
+      {user?.role === "admin" && <AdminNavbar />}
+
       <Routes>
+        <Route path="/" element={<Navigate to="/login"  replace />} />
+
+        <Route path="/login" element={<Login />} />
+
         {/* student routes */}
-        <Route path="/طالب/لوحة التحكم" element={<StudentDashboard/>}></Route>
-        <Route path="/طالب/تقديم شكوي" element={<SubmitComplaint />}></Route>
-        <Route path="/طالب/الشكاوي" element={<ComplaintList />}></Route>
+        <Route
+          path="/طالب/لوحة التحكم"
+          element={
+            <ProtectedRoute allowedRoles={["student"]}>
+              <StudentDashboard />
+            </ProtectedRoute>
+          }
+        ></Route>
+        <Route
+          path="/طالب/تقديم شكوي"
+          element={
+            <ProtectedRoute allowedRoles={["student"]}>
+              <SubmitComplaint />
+            </ProtectedRoute>
+          }
+        ></Route>
+        <Route
+          path="/طالب/الشكاوي"
+          element={
+            <ProtectedRoute allowedRoles={["student"]}>
+              <ComplaintList />
+            </ProtectedRoute>
+          }
+        ></Route>
         <Route path="/طالب/الاسئلة الشائعة" element={<FQA />}></Route>
         <Route path="/طالب/التواصل مع الدعم" element={<ContactUs />}></Route>
-        <Route path="/student/login" element={<StudentLogin/>}></Route>
 
-        
-      
-      
         {/* admin routes */}
-        <Route path="/" element={<AdminLogin/>}></Route>
-        <Route path="/ادمن/لوحة التحكم" element={<AdminDashboard/>}></Route>
-        <Route path="/ادمن/الشكاوي" element={<ComplaintsManagement/>}></Route>
-        <Route path="/ادمن/التحليلات" element={<AdminDashboard/>}></Route>
+
+        <Route
+          path="/ادمن/لوحة التحكم"
+          element={
+            <ProtectedRoute allowedRoles={["admin"]}>
+              <AdminDashboard/>
+            </ProtectedRoute>
+          }
+        ></Route>
+        <Route
+          path="/ادمن/الشكاوي"
+          element={
+            <ProtectedRoute allowedRoles={["admin"]}>
+              <ComplaintsManagement />
+            </ProtectedRoute>
+          }
+        ></Route>
+        <Route
+          path="/ادمن/التحليلات"
+          element={
+            <ProtectedRoute allowedRoles={["admin"]}>
+              <AdminDashboard />
+            </ProtectedRoute>
+          }
+        ></Route>
         <Route path="/notifications" element={<NotificationCenter />} />
 
-        <Route path="*" element={<Navigate to={'/'} />}></Route>
+        <Route path="*" element={<Navigate to={"/login"} />}></Route>
       </Routes>
-      
-      {!isAdminLogin && <Footer />} 
-    </BrowserRouter>
+
+      {!hideFooterPages.includes(location.pathname) && <Footer />}
+    </>
   );
 };
 

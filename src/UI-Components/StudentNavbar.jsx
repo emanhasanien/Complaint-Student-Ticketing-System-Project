@@ -1,9 +1,15 @@
 import React from 'react'
 import '../index.css'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 import logo from '../assets/images/logo.png'
+import AuthService from '../AuthService'
 
 const StudentNavbar = () => {
+  const navigate = useNavigate()
+  const handleLogout = ()=>{
+    AuthService.logout();
+   navigate('/login')
+  }
   return (
     <nav className="navbar navbar-expand-lg" dir='rtl'>
     <div className="container">
@@ -42,6 +48,7 @@ const StudentNavbar = () => {
          
         </ul>
         
+        <button className='btn btn-primary' onClick={handleLogout}>تسجيل الخروج </button>
       </div>
     </div>
   </nav>
