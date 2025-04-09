@@ -231,3 +231,73 @@ footer {
   border-radius: 5px;
   /* background-color: burlywood !important; */
 }
+
+
+/* feedback page */
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; 
+  padding: 30px; 
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
+  max-width: 400px; 
+  width: 100%;
+}
+
+
+.feedback-form h2 {
+  color: #3181E9;
+}
+
+
+.feedback-form input,
+.feedback-form textarea 
+{ padding: 10px;
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
+  font-size: 16px;
+  outline: none;
+  transition: border 0.3s;
+}
+
+
+.feedback-form input:focus, 
+.feedback-form textarea:focus {
+  border-color:
+  #3181E9;
+  }
+
+  .feedback-form button {
+  padding: 10px 15px;
+  background-color: #3181E9; color: white;
+  border: none; border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  }
+
+  
+.feedback-form button:hover
+ { background-color: #3181E9;
+}
+
+/* Feedback List Styles */
+.add-rating-button {
+  padding: 8px 12px;
+  background-color: #3181E9;
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.add-rating-button:hover {
+  background-color: #1a60c2;
+}
+
+.feedback-list {
+margin-top: 30px;
+color: black;
+}
