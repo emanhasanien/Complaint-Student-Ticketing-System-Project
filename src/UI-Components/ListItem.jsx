@@ -29,7 +29,7 @@ export const ListItem = ({ id, title, status, handelClick }) => {
   const navigate = useNavigate();
 
   const goToComplaintDetails = (id) => {
-    navigate(`/ادمن/الشكوي/${id}`);
+    navigate(`/ادمن/الشكاوي/${id}`);
   };
 
   return (

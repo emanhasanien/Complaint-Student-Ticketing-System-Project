@@ -1,41 +1,120 @@
-import React from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import React, { useEffect } from "react";
+import {
+  Routes,
+  Route,
+  Navigate,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 import ComplaintList from "./pages//Student/ComplaintList";
 import FQA from "./pages//Student/FQA";
 import ContactUs from "./pages//Student/ContactUs";
-import StudentNavbar from "./UI-Components/StudentNavbar";
 import { Footer } from "./UI-Components/Footer";
 import SubmitComplaint from "./pages/Student/SubmitComplaint";
 import StudentDashboard from "./pages/Student/StudentDashboard";
-import AdminDashboard from "./pages/Admin/AdminDashboard";
+import ComplaintDetails from "./pages/Student/ComplaintDetailsa";
+
 import ComplaintsManagement from "./pages/Admin/ComplaintsManagement";
-import ComplaintDetails from "./pages/Student/ComplaintDetails";
+import NotificationCenter from "./UI-Components/NotificationCenter";
+import AuthService from "./AuthService";
+import ProtectedRoute from "./pages/ProtectedRoute";
+import Login from "./pages/Login";
+import StudentNavbar from "./UI-Components/StudentNavbar";
+import AdminNavbar from "./pages/Admin/AdminNavbar";
+import AdminDashboard from "./pages/Admin/AdminDashboard";
 
 const App = () => {
+  const user = AuthService.getUser();
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!user) {
+      navigate("/login", { replace: true });
+    }
+  }, [user, navigate]);
+
+  const hideFooterPages = ["/login"];
+
   return (
-    <BrowserRouter>
-      <StudentNavbar />
+    <>
+      {user?.role === "student" && <StudentNavbar />}
+      {user?.role === "admin" && <AdminNavbar />}
 
       <Routes>
-        {/* student routes  */}
+        <Route path="/" element={<Navigate to="/login" replace />} />
 
-        <Route path="/طالب/لوحة التحكم" element={<StudentDashboard />}></Route>
-        <Route path="/طالب/تقديم شكوي" element={<SubmitComplaint />}></Route>
-        <Route path="/طالب/الشكاوي" element={<ComplaintList />}></Route>
+        <Route path="/login" element={<Login />} />
+
+        {/* student routes */}
+        <Route
+          path="/طالب/لوحة التحكم"
+          element={
+            <ProtectedRoute allowedRoles={["student"]}>
+              <StudentDashboard />
+            </ProtectedRoute>
+          }
+        ></Route>
+        <Route
+          path="/طالب/تقديم شكوي"
+          element={
+            <ProtectedRoute allowedRoles={["student"]}>
+              <SubmitComplaint />
+            </ProtectedRoute>
+          }
+        ></Route>
+        <Route
+          path="/طالب/الشكاوي"
+          element={
+            <ProtectedRoute allowedRoles={["student"]}>
+              <ComplaintList />
+            </ProtectedRoute>
+          }
+        ></Route>
         <Route path="/طالب/الاسئلة الشائعة" element={<FQA />}></Route>
         <Route path="/طالب/التواصل مع الدعم" element={<ContactUs />}></Route>
 
-        {/* admin routes  */}
-        <Route path="/ادمن/لوحة التحكم" element={<AdminDashboard />}></Route>
-        <Route path="/ادمن/الشكاوي" element={<ComplaintsManagement />}></Route>
-        <Route path="/ادمن/المراجعات" element={<AdminDashboard />}></Route>
-        <Route path="/ادمن/الشكوي/:id" element={<ComplaintDetails />}></Route>
+        {/* admin routes */}
 
-        <Route path="*" element={<Navigate to={"/"} />}></Route>
+        <Route
+          path="/admin/dashboard"
+          element={
+            <ProtectedRoute allowedRoles={["admin"]}>
+              {user?.role === "admin" ? (
+                <AdminDashboard />
+              ) : (
+                <Navigate to="/login" />
+              )}
+            </ProtectedRoute>
+          }
+        ></Route>
+        <Route
+          path="/ادمن/الشكاوي"
+          element={
+            <ProtectedRoute allowedRoles={["admin"]}>
+              <ComplaintsManagement />
+            </ProtectedRoute>
+          }
+        ></Route>
+        <Route
+          path="/ادمن/الشكاوي/:id"
+          element={
+            <ProtectedRoute allowedRoles={["admin"]}>
+              <ComplaintDetails />
+            </ProtectedRoute>
+          }
+        ></Route>
+        <Route
+          path="/ادمن/التحليلات"
+          element={<ProtectedRoute allowedRoles={["admin"]}></ProtectedRoute>}
+        ></Route>
+        <Route path="/notifications" element={<NotificationCenter />} />
+
+        <Route path="*" element={<Navigate to={"/login"} />}></Route>
       </Routes>
 
-      <Footer />
-    </BrowserRouter>
+      {!hideFooterPages.includes(location.pathname) && <Footer />}
+    </>
   );
 };
 

@@ -62,6 +62,13 @@ body,
   font-weight: bold;
 }
 
+/*========= contact us page style ========== */
+
+.contact-us , .FQA , .submit-complaint, .complaint-list ,.admin-dashboard , .notification-page{
+    height: 100%;
+    margin-block: 60px;
+}
+
 /*========= Footer style ========== */
 footer {
   background-color: var(--main-color);
