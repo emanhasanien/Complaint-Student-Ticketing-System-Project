@@ -59,7 +59,7 @@ const ComplaintList = () => {
   // };
 
   return (
-    <div className="box">
+    <div className="box complaint-list">
       <h1>قائمة الشكاوي</h1>
 
       <div className="search-box">
@@ -69,7 +69,7 @@ const ComplaintList = () => {
           type="text"
           name="userInput"
           value={search}
-          placeholder="اسم الشكوة"
+          placeholder="اسم الشكوي"
           onChange={handleChange}
         />
         <i

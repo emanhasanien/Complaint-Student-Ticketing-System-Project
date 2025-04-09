@@ -35,12 +35,12 @@ const SubmitComplaint = () => {
   };
 
   return (
-    <div>
+    <section className="submit-complaint">
       <div className="box">
         <form onSubmit={handleSubmit} className="form">
           <h1>نموذج تقديم شكوى</h1>
           <input
-            className="form_input"
+            className="form_input form-control"
             type="text"
             name="title"
             placeholder="عنوان الشكوى"
@@ -49,7 +49,7 @@ const SubmitComplaint = () => {
             required
           />
           <textarea
-            className="form_input"
+            className="form_input form-control"
             name="description"
             placeholder="وصف المشكلة"
             value={complaint.description}
@@ -57,7 +57,7 @@ const SubmitComplaint = () => {
             required
           />
           <select
-            className="form_input"
+            className="form_input form-control"
             name="category"
             value={complaint.category}
             onChange={handleChange}
@@ -66,12 +66,12 @@ const SubmitComplaint = () => {
             <option value="مرافق">مرافق</option>
             <option value="خدمات">خدمات</option>
           </select>
-          <button className="new" type="submit">
+          <button className="new btn btn-primary" type="submit">
             إرسال
           </button>
         </form>
       </div>
-    </div>
+    </section>
   );
 };
 

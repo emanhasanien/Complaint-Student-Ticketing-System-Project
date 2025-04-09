@@ -64,7 +64,9 @@ body,
 
 /*========= contact us page style ========== */
 
-.contact-us , .FQA , .submit-complaint, .complaint-list ,.admin-dashboard , .notification-page{
+.contact-us , .FQA , .submit-complaint, .complaint-list ,.admin-dashboard , .notification-page,
+.submit-complaint, .complaint-list , .complaint-details-container
+{
     height: 100%;
     margin-block: 60px;
 }
@@ -86,6 +88,7 @@ footer {
   flex-direction: column;
   gap: 15px;
   margin: 0 auto;
+ 
 }
 
 .complaint-card {
@@ -165,7 +168,7 @@ footer {
   border-radius: 5px;
 }
 .new {
-  background: #ffcc00;
+  background: var(--main-color);
 }
 .processing {
   background: #17a2b8;
@@ -226,5 +229,5 @@ footer {
 .btn {
   padding: 5px;
   border-radius: 5px;
-  background-color: burlywood !important;
+  /* background-color: burlywood !important; */
 }

@@ -12,7 +12,7 @@ import ContactUs from "./pages//Student/ContactUs";
 import { Footer } from "./UI-Components/Footer";
 import SubmitComplaint from "./pages/Student/SubmitComplaint";
 import StudentDashboard from "./pages/Student/StudentDashboard";
-import ComplaintDetails from "./pages/Student/ComplaintDetailsa";
+import ComplaintDetails from "./pages/Student/ComplaintDetails";
 
 import ComplaintsManagement from "./pages/Admin/ComplaintsManagement";
 import NotificationCenter from "./UI-Components/NotificationCenter";
