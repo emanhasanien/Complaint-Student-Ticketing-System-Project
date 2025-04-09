@@ -1,78 +1,223 @@
-
 /* ========= Global Style ======== */
 
-:root{
-    --main-color:#3181E9;
+:root {
+  --main-color: #3181e9;
 }
 
-html, body, #root {
-   height: 100%;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-  }
-
-
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
 
 /* ========= navbar style ========== */
-.navbar{
-    background-color: var(--main-color) ;
-   color: white;
+.navbar {
+  background-color: var(--main-color);
+  color: white;
 }
-.navbar .nav-link{
-    color:black ;
-    margin-right: 1.25rem;
-    font-size: 20px;
+.navbar .nav-link {
+  color: black;
+  margin-right: 1.25rem;
+  font-size: 20px;
 }
-.navbar .nav-link:hover{
-    color: black;
+.navbar .nav-link:hover {
+  color: black;
 }
 
-.navbar .nav-link.active{
-    color: white;
+.navbar .nav-link.active {
+  color: white;
 }
 
 /*========= Home page style ========== */
 
-.student-home{
-    flex: 1;
-    background-image: url(./assets/images/Homebg.png);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: rgba(0, 0, 0, 0.5); /* لون شفاف فوق الصورة */
-    background-blend-mode: overlay;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.student-home {
+  flex: 1;
+  background-image: url(./assets/images/Homebg.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.5); /* لون شفاف فوق الصورة */
+  background-blend-mode: overlay;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.student-home h2{
-
-    color: white;
-}
-
-.student-home .student-main-content{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.student-home h2 {
+  color: white;
 }
 
-.student-home .submit-complaint-link{
-    font-size: 30px;
-    color: rgb(22, 3, 129);
-    font-weight: bold;
+.student-home .student-main-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.student-home .submit-complaint-link {
+  font-size: 30px;
+  color: rgb(22, 3, 129);
+  font-weight: bold;
 }
 
 /*========= Footer style ========== */
-footer{
-    background-color: var(--main-color);
-    color: white;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+footer {
+  background-color: var(--main-color);
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+/*  Complaint */
 
+.box {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 0 auto;
+}
+
+.complaint-card {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+.search-box {
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  cursor: pointer;
+  position: relative;
+  gap: 10px;
+}
+
+.search_icon {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.search-input {
+  border: none;
+  outline: none;
+  background: transparent;
+  flex-grow: 1;
+}
+
+.filter_icon {
+  padding-right: 10px;
+  border-right: 1px solid rgba(0, 0, 0, 0.3);
+  color: rgb(0, 0, 0);
+}
+
+.filter_list {
+  --gap: 5px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  translate: -100% -30%;
+  display: flex;
+  gap: var(--gap);
+  border-radius: var(--gap);
+  flex-wrap: wrap;
+  padding: var(--gap);
+  font-size: 15px;
+  background-color: rgba(131, 131, 131, 0.5);
+}
+
+.filter_list-item {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 5px;
+  text-align: center;
+  flex: 1;
+  flex-basis: 40%;
+  user-select: none;
+}
+.complaint-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #007bff;
+}
+.complaint-info {
+  font-size: 14px;
+  color: #555;
+}
+.status {
+  font-weight: bold;
+  padding: 5px;
+  border-radius: 5px;
+}
+.new {
+  background: #ffcc00;
+}
+.processing {
+  background: #17a2b8;
+  color: white;
+}
+.resolved {
+  background: #28a745;
+  color: white;
+}
+
+.clicked {
+  background-color: bisque;
+  color: black;
+}
+
+.complaint__status {
+  display: none;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.show {
+  display: flex;
+}
+
+.complaint__status-item {
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.complaint-details {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+}
+
+.edit_icon {
+  cursor: pointer;
+}
+
+/* From */
+
+.form {
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 0 auto;
+}
+
+/* BUTTON */
+
+.btn {
+  padding: 5px;
+  border-radius: 5px;
+  background-color: burlywood !important;
 }

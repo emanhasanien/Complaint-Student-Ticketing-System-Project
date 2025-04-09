@@ -9,39 +9,32 @@ import SubmitComplaint from "./pages/Student/SubmitComplaint";
 import StudentDashboard from "./pages/Student/StudentDashboard";
 import AdminDashboard from "./pages/Admin/AdminDashboard";
 import ComplaintsManagement from "./pages/Admin/ComplaintsManagement";
+import ComplaintDetails from "./pages/Student/ComplaintDetails";
 
 const App = () => {
   return (
     <BrowserRouter>
+      <StudentNavbar />
 
-  
+      <Routes>
+        {/* student routes  */}
 
-     <StudentNavbar />
-    
-       
-          <Routes>
+        <Route path="/طالب/لوحة التحكم" element={<StudentDashboard />}></Route>
+        <Route path="/طالب/تقديم شكوي" element={<SubmitComplaint />}></Route>
+        <Route path="/طالب/الشكاوي" element={<ComplaintList />}></Route>
+        <Route path="/طالب/الاسئلة الشائعة" element={<FQA />}></Route>
+        <Route path="/طالب/التواصل مع الدعم" element={<ContactUs />}></Route>
 
-               {/* student routes  */}
-           
-            <Route path="/طالب/لوحة التحكم" element={<StudentDashboard/>}></Route>
-            <Route path="/طالب/تقديم شكوي" element={<SubmitComplaint />}></Route>
-            <Route path="/طالب/الشكاوي" element={<ComplaintList />}></Route>
-            <Route path= "/طالب/الاسئلة الشائعة" element={<FQA />}></Route>
-            <Route path= "/طالب/التواصل مع الدعم" element={<ContactUs />}></Route>
+        {/* admin routes  */}
+        <Route path="/ادمن/لوحة التحكم" element={<AdminDashboard />}></Route>
+        <Route path="/ادمن/الشكاوي" element={<ComplaintsManagement />}></Route>
+        <Route path="/ادمن/المراجعات" element={<AdminDashboard />}></Route>
+        <Route path="/ادمن/الشكوي/:id" element={<ComplaintDetails />}></Route>
 
+        <Route path="*" element={<Navigate to={"/"} />}></Route>
+      </Routes>
 
-               {/* admin routes  */}
-               <Route path="/ادمن/لوحة التحكم" element={<AdminDashboard/>}></Route>
-               <Route path="/ادمن/الشكاوي" element={<ComplaintsManagement/>}></Route>
-               <Route path="/ادمن/المراجعات" element={<AdminDashboard/>}></Route>
-
-               <Route path="*" element={<Navigate to={'/'}/>}></Route>
-
-          </Routes>
-      
-
-        <Footer />
-      
+      <Footer />
     </BrowserRouter>
   );
 };

@@ -1,46 +1,44 @@
-
 [
-    {
-        "userId": 101,
-        "name": "محمد علي",
-        "email": "mohamed.ali@student.edu",
-        "role":"student"
-      },
-      {
-        "userId": 102,
-        "name": "أحمد سمير",
-        "email": "ahmed.samir@student.edu",
-        "role": "student"
-      },
-      {
-        "userId": 103,
-        "name": "سارة محمود",
-        "email": "sara.mahmoud@student.edu",
-        "role": "student"
-      },
-      {
-        "userId": 104,
-        "name": "خالد عبد الله",
-        "email": "khaled.abdullah@student.edu",
-        "role": "student"
-      },
-      {
-        "userId": 105,
-        "name": "مريم حسن",
-        "email": "mariam.hassan@student.edu",
-        "role": "student"
-      },
-      {
-        "userId": 201,
-        "name": "مصطفى ياسر",
-        "email": "mostafa.yasser@support.edu",
-        "role": "admin"
-      },
-      {
-        "userId": 301,
-        "name": "إدارة النظام",
-        "email": "admin@system.edu",
-        "role":  "admin"
-      }
-    
+  {
+    "userId": 101,
+    "name": "محمد علي",
+    "email": "mohamed.ali@student.edu",
+    "role": "student"
+  },
+  {
+    "userId": 102,
+    "name": "أحمد سمير",
+    "email": "ahmed.samir@student.edu",
+    "role": "student"
+  },
+  {
+    "userId": 103,
+    "name": "سارة محمود",
+    "email": "sara.mahmoud@student.edu",
+    "role": "student"
+  },
+  {
+    "userId": 104,
+    "name": "خالد عبد الله",
+    "email": "khaled.abdullah@student.edu",
+    "role": "student"
+  },
+  {
+    "userId": 105,
+    "name": "مريم حسن",
+    "email": "mariam.hassan@student.edu",
+    "role": "student"
+  },
+  {
+    "userId": 201,
+    "name": "مصطفى ياسر",
+    "email": "mostafa.yasser@support.edu",
+    "role": "admin"
+  },
+  {
+    "userId": 301,
+    "name": "إدارة النظام",
+    "email": "admin@system.edu",
+    "role": "admin"
+  }
 ]
