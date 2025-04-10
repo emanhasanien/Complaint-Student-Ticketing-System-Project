@@ -3,7 +3,7 @@ import React from "react";
 const FeedbackList = ({ feedback }) => {
   return (
     <div className="feedback-list">
-      <h2>Feedback Received</h2>
+      <h2 className="page-title">كل التقييمات</h2>
 
       {feedback.length > 0 ? (
         feedback.map((fb, index) => (
@@ -13,7 +13,7 @@ const FeedbackList = ({ feedback }) => {
           </div>
         ))
       ) : (
-        <p>No feedback yet, be the first to leave one!</p>
+        <p className="no-feedback">لا توجد تقييمات حالياً، كن أول من يشارك برأيه!</p>
       )}
     </div>
   );

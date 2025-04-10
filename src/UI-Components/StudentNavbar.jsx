@@ -68,9 +68,19 @@ const StudentNavbar = () => {
                 التواصل مع الدعم
               </NavLink>
             </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to={"/طالب/تقيم الخدمة"}>
+                تقيم الخدمة 
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to={"/طالب/كل التقيمات"}>
+              التقييمات 
+              </NavLink>
+            </li>
           </ul>
 
-          <button className="btn btn-primary" onClick={handleLogout}>
+          <button className="btn btn-primary"  onClick={handleLogout}>
             تسجيل الخروج{" "}
           </button>
         </div>

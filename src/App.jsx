@@ -13,7 +13,9 @@ import { Footer } from "./UI-Components/Footer";
 import SubmitComplaint from "./pages/Student/SubmitComplaint";
 import StudentDashboard from "./pages/Student/StudentDashboard";
 import ComplaintDetails from "./pages/Student/ComplaintDetails";
-
+import FeedbackForm from "./pages/feedback/FeedbackForm";
+import FeedbackList from "./pages/feedback/FeedbackList";
+import { useState } from "react";
 import ComplaintsManagement from "./pages/Admin/ComplaintsManagement";
 import NotificationCenter from "./UI-Components/NotificationCenter";
 import AuthService from "./AuthService";
@@ -33,6 +35,13 @@ const App = () => {
       navigate("/login", { replace: true });
     }
   }, [user, navigate]);
+
+  const [feedback, setFeedback] = useState([]);
+  console.log(feedback)
+
+  const addFeedback = (feedback) => {
+    setFeedback((prev) => [...prev, feedback]);
+  };
 
   const hideFooterPages = ["/login"];
 
@@ -73,6 +82,13 @@ const App = () => {
         ></Route>
         <Route path="/طالب/الاسئلة الشائعة" element={<FQA />}></Route>
         <Route path="/طالب/التواصل مع الدعم" element={<ContactUs />}></Route>
+        <Route path="/طالب/تقيم الخدمة" element={<FeedbackForm addFeedback={addFeedback}  />}></Route>
+        <Route
+          path="/طالب/كل التقيمات"
+          element={
+            <FeedbackList feedback={feedback} />
+          }
+        />
 
         {/* admin routes */}
 

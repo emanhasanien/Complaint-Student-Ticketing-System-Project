@@ -16,21 +16,23 @@ const FeedbackForm = ({ addFeedback }) => {
   };
 
   return (
-    <form className="feedback-form" onSubmit={handleSubmit}>
-      <h2>Submit Your Feedback</h2>
-      <input
-        type="text"
-        placeholder="Your Name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-      <textarea
-        placeholder="Your feedback"
-        value={feedback}
-        onChange={(e) => setFeedback(e.target.value)}
-      ></textarea>
-      <button type="submit">Submit</button>
-    </form>
+    <div className="feedback-container">
+      <form className="feedback-form" onSubmit={handleSubmit}>
+        <h2>شارك برأيك في الموقع</h2>
+        <input
+          type="text"
+          placeholder="اسمك"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <textarea
+          placeholder="تعليقك"
+          value={feedback}
+          onChange={(e) => setFeedback(e.target.value)}
+        ></textarea>
+        <button type="submit">حفظ التقييم</button>
+      </form>
+    </div>
   );
 };
 

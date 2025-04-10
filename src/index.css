@@ -21,7 +21,7 @@ body,
 .navbar .nav-link {
   color: black;
   margin-right: 1.25rem;
-  font-size: 20px;
+  font-size: 18.5px;
 }
 .navbar .nav-link:hover {
   color: black;
@@ -298,6 +298,54 @@ footer {
 }
 
 .feedback-list {
-margin-top: 30px;
-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 82.8vh;
+  text-align: center;
+  padding: 20px;
 }
+
+.page-title {
+  font-size: 32px;
+  color: #1a1a1a;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.no-feedback {
+  font-size: 18px;
+  color: #888;
+  margin-top: 5px;
+}
+
+.feedback-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.feedback-card {
+  padding: 15px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
+  width: 100%; /* Full width */
+  text-align: right; /* Align text to the right */
+  direction: rtl; /* Set text direction to right-to-left */
+}
+
+
+.feedback-card h3 {
+  margin: 0;
+  color:   #3181E9;
+  }
+
+.feedback-card p {
+  margin: 5px 0 0;
+  color: #666;
+  }
