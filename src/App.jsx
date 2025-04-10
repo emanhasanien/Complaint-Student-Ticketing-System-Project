@@ -39,6 +39,18 @@ const App = () => {
   const [feedback, setFeedback] = useState([]);
   console.log(feedback)
 
+  useEffect(() => {
+    const storedFeedback = localStorage.getItem("feedback");
+    if (storedFeedback) {
+      setFeedback(JSON.parse(storedFeedback));
+    }
+  }, []);
+
+  
+  useEffect(() => {
+    localStorage.setItem("feedback", JSON.stringify(feedback));
+  }, [feedback]);
+
   const addFeedback = (feedback) => {
     setFeedback((prev) => [...prev, feedback]);
   };

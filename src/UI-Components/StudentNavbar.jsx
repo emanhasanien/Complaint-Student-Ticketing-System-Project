@@ -58,6 +58,17 @@ const StudentNavbar = () => {
             </li>
 
             <li className="nav-item">
+              <NavLink className="nav-link" to={"/طالب/تقيم الخدمة"}>
+                تقيم الخدمة 
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to={"/طالب/كل التقيمات"}>
+              التقييمات 
+              </NavLink>
+            </li>
+
+            <li className="nav-item">
               <NavLink className="nav-link" to={"/طالب/الاسئلة الشائعة"}>
                 الاسئلة الشائعة
               </NavLink>
@@ -68,16 +79,7 @@ const StudentNavbar = () => {
                 التواصل مع الدعم
               </NavLink>
             </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to={"/طالب/تقيم الخدمة"}>
-                تقيم الخدمة 
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to={"/طالب/كل التقيمات"}>
-              التقييمات 
-              </NavLink>
-            </li>
+        
           </ul>
 
           <button className="btn btn-primary"  onClick={handleLogout}>

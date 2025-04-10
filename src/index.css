@@ -20,7 +20,7 @@ body,
 }
 .navbar .nav-link {
   color: black;
-  margin-right: 1.25rem;
+  margin-right: 1rem;
   font-size: 18.5px;
 }
 .navbar .nav-link:hover {
@@ -69,6 +69,10 @@ body,
 {
     height: 100%;
     margin-block: 60px;
+}
+
+.complaint-details-container{
+  height: 100vh;
 }
 
 /*========= Footer style ========== */
