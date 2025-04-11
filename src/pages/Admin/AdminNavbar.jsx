@@ -57,11 +57,6 @@ const AdminNavbar = () => {
                 </NavLink>
               </li>
 
-              <li className="nav-item">
-                <NavLink className="nav-link" to={"/notifications"}>
-                  الاشعارات
-                </NavLink>
-              </li>
             </ul>
 
             <button className="btn btn-primary" onClick={handleLogout}>

@@ -3,6 +3,8 @@ import "../index.css";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "../assets/images/logo.png";
 import AuthService from "../AuthService";
+import NotificationDropdown from './NotificationDropdown';
+
 
 const StudentNavbar = () => {
   const navigate = useNavigate();
@@ -36,6 +38,17 @@ const StudentNavbar = () => {
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+
+            <li className="nav-item">
+              <NavLink
+                className="nav-link"
+                aria-current="page"
+                to={"/طالب/لوحة التحكم"}
+              >
+                <NotificationDropdown />
+              </NavLink>
+            </li>
+
             <li className="nav-item">
               <NavLink
                 className="nav-link"

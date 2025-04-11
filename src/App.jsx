@@ -17,7 +17,6 @@ import FeedbackForm from "./pages/feedback/FeedbackForm";
 import FeedbackList from "./pages/feedback/FeedbackList";
 import { useState } from "react";
 import ComplaintsManagement from "./pages/Admin/ComplaintsManagement";
-import NotificationCenter from "./UI-Components/NotificationCenter";
 import AuthService from "./AuthService";
 import ProtectedRoute from "./pages/ProtectedRoute";
 import Login from "./pages/Login";
@@ -136,7 +135,6 @@ const App = () => {
           path="/ادمن/التحليلات"
           element={<ProtectedRoute allowedRoles={["admin"]}></ProtectedRoute>}
         ></Route>
-        <Route path="/notifications" element={<NotificationCenter />} />
 
         <Route path="*" element={<Navigate to={"/login"} />}></Route>
       </Routes>
