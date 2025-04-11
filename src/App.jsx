@@ -23,6 +23,7 @@ import Login from "./pages/Login";
 import StudentNavbar from "./UI-Components/StudentNavbar";
 import AdminNavbar from "./pages/Admin/AdminNavbar";
 import AdminDashboard from "./pages/Admin/AdminDashboard";
+import Analytics from "./pages/Admin/Analytics";
 
 const App = () => {
   const user = AuthService.getUser();
@@ -133,7 +134,9 @@ const App = () => {
         ></Route>
         <Route
           path="/ادمن/التحليلات"
-          element={<ProtectedRoute allowedRoles={["admin"]}></ProtectedRoute>}
+          element={<ProtectedRoute allowedRoles={["admin"]}>
+            <Analytics/>
+          </ProtectedRoute>}
         ></Route>
 
         <Route path="*" element={<Navigate to={"/login"} />}></Route>
