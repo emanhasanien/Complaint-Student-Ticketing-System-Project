@@ -1,51 +1,55 @@
 import React, { useState, useEffect } from 'react';
 import { Dropdown } from 'react-bootstrap';
-import notificationsData from '../mocdata/notifications.json'; // Import the JSON directly
+import notificationsData from '../mocdata/notifications.json'; // Mock JSON file
 
 const NotificationDropdown = () => {
   const [notifications, setNotifications] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [currentUserId, setCurrentUserId] = useState(null);
 
-  // Simulate the current user's ID (replace with real logic when integrating with the backend)
-  const currentUserId = 101; // You can replace this with logic to get the current user's ID dynamically
-
+  // Get current student ID from sessionStorage
   useEffect(() => {
-    setLoading(true);
-    // Filter notifications for the current user
-    const userNotifications = notificationsData.filter((notif) => notif.userId === currentUserId);
-    setNotifications(userNotifications);
-    setLoading(false);
-  }, [currentUserId]); // Re-fetch notifications whenever currentUserId changes
+    const user = JSON.parse(sessionStorage.getItem("user"));
+    if (user && user.role === "student") {
+      setCurrentUserId(user.userId); // Adjust this key based on your user object
+    }
+  }, []);
 
-  // Helper function to format the timestamp
+  // Filter notifications for the logged-in student
+  useEffect(() => {
+    if (currentUserId !== null) {
+      setLoading(true);
+      const userNotifications = notificationsData.filter(
+        (notif) => notif.userId === currentUserId
+      );
+      setNotifications(userNotifications);
+      setLoading(false);
+    }
+  }, [currentUserId]);
+
+  // Format notification timestamps
   const formatTimestamp = (timestamp) => {
     const date = new Date(timestamp);
-    return date.toLocaleString(); // Change to a desired format
+    return date.toLocaleString();
   };
 
-  // Handle click on notification
+  // Handle notification click (mark as read)
   const handleNotificationClick = (notif) => {
-    // Mark the notification as read (simulating the behavior)
-    const updatedNotifications = notifications.map((notification) => {
-      if (notification.notificationId === notif.notificationId) {
-        return { ...notification, read: true };  // Add a `read` property to mark it as read
-      }
-      return notification;
-    });
+    const updatedNotifications = notifications.map((notification) =>
+      notification.notificationId === notif.notificationId
+        ? { ...notification, read: true }
+        : notification
+    );
     setNotifications(updatedNotifications);
-
-    // You could navigate or show more details here (optional)
     console.log(`Notification clicked: ${notif.message}`);
-    // e.g., window.location.href = '/notification-details'; // Navigate to a details page
   };
 
-  // Calculate the number of unread notifications
   const unreadCount = notifications.filter((notif) => !notif.read).length;
 
   return (
     <Dropdown align="end" className="notification-dropdown">
       <Dropdown.Toggle variant="light" id="dropdown-notifications">
-        🔔 <span className="badge bg-danger">{unreadCount}</span> {/* Display unread notifications count */}
+        🔔 <span className="badge bg-danger">{unreadCount}</span>
       </Dropdown.Toggle>
 
       <Dropdown.Menu className="dropdown-menu-light">
@@ -57,7 +61,7 @@ const NotificationDropdown = () => {
           notifications.map((notif) => (
             <Dropdown.Item
               key={notif.notificationId}
-              className={`dropdown-item-dark ${notif.read ? 'read' : ''}`}  // Apply a class if read
+              className={`dropdown-item-dark ${notif.read ? 'read' : ''}`}
               onClick={() => handleNotificationClick(notif)}
             >
               <strong>{notif.message}</strong>
